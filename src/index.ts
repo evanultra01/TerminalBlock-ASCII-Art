@@ -3,7 +3,7 @@ import KernelDitherer from './kernel-ditherer.js';
 
 // Braille symbol is 2x4 dots
 const asciiXDots = 2,
-	asciiYDots = 4;
+	asciiYDots = 2;
 
 type DithererName = 'threshold' | 'floydSteinberg' | 'stucki' | 'atkinson';
 
@@ -140,7 +140,7 @@ async function render() {
 			// determines its position in the range.
 			// https://en.wikipedia.org/wiki/Braille_Patterns
 			line.push(
-				10240
+				9622
 				+ ( +( ditheredPixels.data.at( rgbaOffset( x + 1, y + 3, canvas.width ) ) === targetValue ) << 7 )
 				+ ( +( ditheredPixels.data.at( rgbaOffset( x + 0, y + 3, canvas.width ) ) === targetValue ) << 6 )
 				+ ( +( ditheredPixels.data.at( rgbaOffset( x + 1, y + 2, canvas.width ) ) === targetValue ) << 5 )
