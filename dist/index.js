@@ -1,7 +1,7 @@
 import { $, on, rgbaOffset } from './helpers.js';
 import KernelDitherer from './kernel-ditherer.js';
 // Braille symbol is 2x4 dots
-const asciiXDots = 2, asciiYDots = 4;
+const asciiXDots = 2, asciiYDots = 2;
 const ditherers = {
     threshold: new KernelDitherer([0, 0], [], 1),
     floydSteinberg: new KernelDitherer([1, 0], [
@@ -97,7 +97,7 @@ async function render() {
             // Each of the eight dots is mapped to a bit in a byte which
             // determines its position in the range.
             // https://en.wikipedia.org/wiki/Braille_Patterns
-            line.push(10240
+            line.push(9622
                 + (+(ditheredPixels.data.at(rgbaOffset(x + 1, y + 3, canvas.width)) === targetValue) << 7)
                 + (+(ditheredPixels.data.at(rgbaOffset(x + 0, y + 3, canvas.width)) === targetValue) << 6)
                 + (+(ditheredPixels.data.at(rgbaOffset(x + 1, y + 2, canvas.width)) === targetValue) << 5)
